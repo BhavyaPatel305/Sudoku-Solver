@@ -83,8 +83,25 @@ def Is_valid(puzzle,num,row,col):
             for j in range(6,9):
                 if puzzle[i][j] == num:
                     return False
+                
+    
+    """This part checks if the num is unique in the whole row where we are inserting this element."""
     
     
+    row_vals = puzzle[row]
+    if num in row_vals:
+        return False
+    
+    """This part checks if the num is unique in the whole column where we are inserting this element."""
+    
+    col_vals = []
+    for i in range(9):
+        col_vals.append(puzzle[i][col])
+    
+    if num in col_vals:
+        return False
+
+        
     return True
 
 def random_number_generator():
@@ -117,10 +134,3 @@ def main():
     printsudoku(puzzle)
     
 main()
-                
-            
-        
-        
-        
-            
-        
